@@ -1,0 +1,23 @@
+vpc_name: "annsible-VPC"
+
+#VPC range;
+vpcCIDR: "172.20.0.0/16"
+
+#Subnet range
+Pubsub1CIDR: "172.20.1.0/24"
+Pubsub2CIDR: "172.20.2.0/24"
+Pubsub3CIDR: "172.20.3.0/24"
+Prisub1CIDR: "172.20.4.0/24"
+Prisub2CIDR: "172.20.5.0/24"
+Prisub3CIDR: "172.20.6.0/24"
+
+# region name;
+region: "us-east-1"
+
+# zone name:
+zone1: "us-east-1a"
+zone2: "us-east-1b"
+zone3: "us-east-1c"
+
+#state;
+state: present
