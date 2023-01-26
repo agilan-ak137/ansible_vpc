@@ -9,7 +9,7 @@
         name: "{{vpc_name}}"
         cidr_block: "{{vpcCIDR}}"
         region: "{{region}}"
-        state : "{{present}}"
+        state : "{{state}}"
         dns_support: yes
         dns_hostnames: yes
       register: vpcout
