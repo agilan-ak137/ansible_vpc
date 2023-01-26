@@ -2,7 +2,7 @@
   gather_facts: False
   tasks:
     - name: import variables
-      include_vars: ansible_vpc/vars
+      include_vars: vars/vpc_setup
 
     - name: VPC setup
       ec2_vpc_net:
