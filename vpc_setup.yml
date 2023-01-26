@@ -1,0 +1,17 @@
+- hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: import variables
+      include_vars: ansible_vpc/vars
+
+    - name: VPC setup
+      ec2_vpc_net:
+        name: "{{vpc_name}}"
+        cidr_block: "{{vpcCIDR}}"
+        region: "{{region}}"
+        state : "{{present}}"
+        dns_support: yes
+        dns_hostnames: yes
+      register: vpcout
+
+
