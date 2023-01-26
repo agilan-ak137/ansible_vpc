@@ -30,3 +30,26 @@
           Name: subnet1
       register: subout1
 
+    - name: Create subnet
+      ec2_vpc_subnet:
+        vpc_id: "{{vpcout.vpc.id}}"
+        cidr: "{{Pubsub2CIDR}}"
+        state: "{{state}}"
+        region: "{{region}}"
+        az: "{{zone2}}"
+        map_public: yes
+        tags:
+          Name: subnet2
+      register: subout2
+
+    - name: Create subnet
+      ec2_vpc_subnet:
+        vpc_id: "{{vpcout.vpc.id}}"
+        cidr: "{{Pubsub3CIDR}}"
+        state: "{{state}}"
+        region: "{{region}}"
+        az: "{{zone3}}"
+        map_public: yes
+        tags:
+          Name: subnet3
+      register: subout3
