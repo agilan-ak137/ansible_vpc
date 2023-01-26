@@ -53,3 +53,36 @@
         tags:
           Name: subnet3
       register: subout3
+
+    - name: Create subnet
+      ec2_vpc_subnet:
+        vpc_id: "{{vpcout.vpc.id}}"
+        cidr: "{{Prisub1CIDR}}"
+        state: "{{state}}"
+        region: "{{region}}"
+        az: "{{zone1}}"
+        tags:
+          Name: subnet1-priv
+      register: subout1-priv
+
+    - name: Create subnet
+      ec2_vpc_subnet:
+        vpc_id: "{{vpcout.vpc.id}}"
+        cidr: "{{Prisub2CIDR}}"
+        state: "{{state}}"
+        region: "{{region}}"
+        az: "{{zone2}}"
+        tags:
+          Name: subnet2-priv
+      register: subout2-priv
+
+    - name: Create subnet
+      ec2_vpc_subnet:
+        vpc_id: "{{vpcout.vpc.id}}"
+        cidr: "{{Prisub3CIDR}}"
+        state: "{{state}}"
+        region: "{{region}}"
+        az: "{{zone3}}"
+        tags:
+          Name: subnet3-priv
+      register: subout3-priv
