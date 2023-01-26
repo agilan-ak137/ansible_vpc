@@ -63,7 +63,7 @@
         az: "{{zone1}}"
         tags:
           Name: subnet1-priv
-      register: subout1-priv
+      register: subout1priv
 
     - name: Create subnet
       ec2_vpc_subnet:
@@ -74,7 +74,7 @@
         az: "{{zone2}}"
         tags:
           Name: subnet2-priv
-      register: subout2-priv
+      register: subout2priv
 
     - name: Create subnet
       ec2_vpc_subnet:
@@ -85,4 +85,4 @@
         az: "{{zone3}}"
         tags:
           Name: subnet3-priv
-      register: subout3-priv
+      register: subout3priv
