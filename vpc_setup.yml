@@ -96,7 +96,7 @@
       register: IGWpub
 
 
-    - name: create Route table
+    - name: create Route table for pub subnets
       ec2_vpc_route_table:
         vpc_id: "{{vpcout.vpc.id}}"
         region: "{{region}}"
@@ -111,7 +111,29 @@
               gateway_id: "{{IGWpub.gateway_id}}"
       register: public_route_table
 
+    - name: Create new nat gateway if a nat gateway does not yet exist in the subnet.
+      ec2_vpc_nat_gateway:
+        state: "{{state}}"
+        subnet_id: "{{subout1priv.subnet.id}}"
+        wait: yes
+        region: "{{region}}"
+        if_exist_do_not_create: true
+      register: nat_IGW
 
+    - name: create Route table for private subnets
+      ec2_vpc_route_table:
+        vpc_id: "{{vpcout.vpc.id}}"
+        region: "{{region}}"
+        tags:
+          Name: Privroute
+        subnets:
+          - "{{subout1priv.subnet.id}}"
+          - "{{subout2priv.subnet.id}}"
+          - "{{subout3priv.subnet.id}}"
+        routes:
+          - dest: 0.0.0.0/0
+            gateway_id: "{{nat_IGW.gateway_id}}"
+      register: private_route_table
 
 
 
