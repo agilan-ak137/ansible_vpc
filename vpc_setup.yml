@@ -135,6 +135,35 @@
             gateway_id: "{{nat_IGW.nat_gateway_id}}"
       register: private_route_table
 
+    - debug:
+        var: "{{item}}"
+      loop:
+        - vpcout.vpc.id
+        - subout1.subnet.id
+        - subout2.subnet.id
+        - subout3.subnet.id
+        - subout1priv.subnet.id
+        - subout2priv.subnet.id
+        - subout3priv.subnet.id
+        - IGWpub.gateway_id
+        - nat_IGW.nat_gateway_id
+
+    - set_fact:
+        vpc_id: "{{vpcout.vpc.id}}"
+        pubsub1: "{{subout1.subnet.id}}"
+        pubsub2: "{{subout2.subnet.id}}"
+        pubsub3: "{{subout3.subnet.id}}"
+        privsub1: "{{subout1priv.subnet.id}}"
+        privsub2: "{{subout2priv.subnet.id}}"
+        privsub3: "{{subout3priv.subnet.id}}"
+        IGW_id: "{{IGWpub.gateway_id}}"
+        nat_IGW_id: "{{nat_IGW.nat_gateway_id}}"
+
+    - name: copy the ID variables to a file
+      copy:
+        content: "vpc_id: {{vpcout.vpc.id}}/npubsub1: {{subout1.subnet.id}}/npubsub2: {{subout2.subnet.id}}/npubsub3: {{subout3.subnet.id}}/n
+                 privsub1: {{subout1priv.subnet.id}}/nprivsub2: {{subout2priv.subnet.id}}/nprivsub3: {{subout3priv.subnet.id}}/nIGW_id: {{IGWpub.gateway_id}}/nnat_IGW_id: {{nat_IGW.nat_gateway_id}}"
+        dest: vars/variable_file
 
 
 
