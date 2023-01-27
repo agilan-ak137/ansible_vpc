@@ -102,14 +102,13 @@
       ec2_vpc_route_table:
         vpc_id: "{{vpcout.vpc.id}}"
         region: "{{region}}"
-        state: "{{state}}"
         tags:
           Name: Pubroute
-          subnets:
+        subnets:
             - "{{subout1.subnet.id}}"
             - "{{subout2.subnet.id}}"
             - "{{subout3.subnet.id}}"
-          routes:
+        routes:
             - dest: 0.0.0.0/0
               gateway_id: "{{IGWpub.gateway_id}}"
       register: public_route_table
