@@ -1,0 +1,8 @@
+vpc_id: vpc-0c5c205d760f352ba/npubsub1: subnet-061be95e8e5d900e7
+pubsub2: subnet-0473d6b5452e72950
+pubsub3: subnet-0870e84a8cfa5526e
+ privsub1: subnet-0299bbb27bae35b8c
+privsub2: subnet-067d0d7ec4adeac3d
+privsub3: subnet-0cc5d3f349838f4a2
+IGW_id: igw-0b23ae03319330c6b
+nat_IGW_id: nat-09238c3737d97cba6
