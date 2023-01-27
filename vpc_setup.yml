@@ -95,8 +95,6 @@
           Name: IGW1
       register: IGWpub
 
-    - debug:
-        var: IGWpub
 
     - name: create Route table
       ec2_vpc_route_table:
