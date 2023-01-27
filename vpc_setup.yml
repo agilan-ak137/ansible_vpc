@@ -132,7 +132,7 @@
           - "{{subout3priv.subnet.id}}"
         routes:
           - dest: 0.0.0.0/0
-            gateway_id: "{{nat_IGW.gateway_id}}"
+            gateway_id: "{{nat_IGW.nat_gateway_id}}"
       register: private_route_table
 
 
