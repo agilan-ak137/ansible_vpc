@@ -161,8 +161,8 @@
 
     - name: copy the ID variables to a file
       copy:
-        content: "vpc_id: {{vpcout.vpc.id}}/npubsub1: {{subout1.subnet.id}}/npubsub2: {{subout2.subnet.id}}/npubsub3: {{subout3.subnet.id}}/n
-                 privsub1: {{subout1priv.subnet.id}}/nprivsub2: {{subout2priv.subnet.id}}/nprivsub3: {{subout3priv.subnet.id}}/nIGW_id: {{IGWpub.gateway_id}}/nnat_IGW_id: {{nat_IGW.nat_gateway_id}}"
+        content: "vpc_id: {{vpcout.vpc.id}}/npubsub1: {{subout1.subnet.id}}\npubsub2: {{subout2.subnet.id}}\npubsub3: {{subout3.subnet.id}}\n
+                 privsub1: {{subout1priv.subnet.id}}\nprivsub2: {{subout2priv.subnet.id}}\nprivsub3: {{subout3priv.subnet.id}}\nIGW_id: {{IGWpub.gateway_id}}\nnat_IGW_id: {{nat_IGW.nat_gateway_id}}"
         dest: vars/variable_file
 
 
