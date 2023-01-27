@@ -94,9 +94,23 @@
         region: "{{region}}"
         tags:
           Name: IGW1
-          register: IGWpub
+      register: IGWpub
 
-
+    - name: create Route table
+      ec2_vpc_route_table:
+        vpc_id: "{{vpcout.vpc.id}}"
+        region: "{{region}}"
+        state: "{{state}}"
+        tags:
+          Name: Pubroute
+          subnets:
+            - "{{subout1.subnet.id}}"
+            - "{{subout2.subnet.id}}"
+            - "{{subout3.subnet.id}}"
+          routes:
+            - dest: 0.0.0.0/0
+              gateway_id: "{{ IGWpub.gateway_id }}"
+        register: public_route_table
 
 
 
